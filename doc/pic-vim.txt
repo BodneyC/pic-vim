@@ -1,0 +1,151 @@
+*PicVim* *picvim* *Pic-Vim* *pic-vim* - Image viewer for Vim
+                                                                           
+  ,-.----.                                                                 ~
+  \    /  \                                                       ____     ~
+  |   :    \  ,--,                          ,---. ,--,          ,'  , `.   ~
+  |   |  .\ ,--.'|              ,---,.     /__./,--.'|       ,-+-,.' _ |   ~
+  .   :  |: |  |,             ,'  .' |,---.;  ; |  |,     ,-+-. ;   , ||   ~
+  |   |   \ `--'_      ,---.,---.'   /___/ \  | `--'_    ,--.'|'   |  ||   ~
+  |   : .   ,' ,'|    /     |   |    \   ;  \ ' ,' ,'|  |   |  ,', |  |,   ~
+  ;   | |`-''  | |   /    / :   :  .' \   \  \: '  | |  |   | /  | |--'    ~
+  |   | ;   |  | :  .    ' /:   |.'    ;   \  ' |  | :  |   : |  | ,       ~
+  :   ' |   '  : |__'   ; :_`---'       \   \   '  : |__|   : |  |/        ~
+  :   : :   |  | '.''   | '.'|           \   `  |  | '.'|   | |`-'         ~
+  |   | :   ;  :    |   :    :            :   \ ;  :    |   ;/             ~
+  `---'.|   |  ,   / \   \  /              '---"|  ,   /'---'              ~
+    `---`    ---`-'   `----'                     ---`-'                    ~
+
+==========================================================================
+CONTENTS                                                    *PicVimContents*
+
+
+  1. Usage ..................................... |PicVimUsage|
+    a. Functions ............................... |PicVimFunctions|
+    b. Commands ................................ |PicVimCommands|
+    c. AutoCmds ................................ |PicVimAutoCmds|
+  2. Configuration ............................. |PicVimConfiguration|
+    a. Global variables ........................ |PicVimGlobalVariables|
+  3. TODOs ..................................... |PicVimTODOs|
+  4. Bugs ...................................... |PicVimBugs|
+  5. License ................................... |PicVimLicense|
+
+
+==========================================================================
+USAGE                                                          *PicVimUsage*
+
+
+This section will define the usage of the plugin, the main function is 
+ |PicVimStart|, which is handled mostly by an |autocmd| on |VimEnter|.
+
+
+--------------------------------------------------------------------------
+FUNCTIONS                                                  *PicVimFunctions*
+
+
+  *PicVimStarter*               Params: None
+
+                              Desc: Use |argv()| to generate images in 
+                                  splits; useful if |g:pic_vim_enable| 
+                                  is set to 0.
+
+
+  *PicVimDrawImageWithWidth*    Params: Filename[, Width]
+
+                                Filename: Filename of image
+
+                                Width:    Default: 100. Character width 
+                                          of output.
+
+                              Desc: Draw an image into the current buffer
+
+
+  *PicVimDrawImageIntoSplit*   Params: Filename, Direction[, Width]
+
+                                Filename: Filename of image
+
+                                Dir:      'vert' for |vert split|
+                                          'horz' for |split
+
+                                Width:    Default: |winwidth(0)|. Character 
+                                          width of output.
+
+
+--------------------------------------------------------------------------
+COMMANDS                                                    *PicVimCommands*
+
+
+All commands are taken directly from the functions above, with the same 
+ params.
+
+  |PicVimDrawImage|
+
+  |PicVimDrawImageIntoSplit|
+
+  |PicVimStarter|
+
+
+--------------------------------------------------------------------------
+AUTOCMDS                                                    *PicVimAutoCmds*
+
+
+  |PicVimStarter| is launched on |VimEnter|
+
+
+==========================================================================
+CONFIGURATION                                          *PicVimConfiguration*
+
+
+  *g:pic_vim_enable*                Default: 1
+
+                                  Desc: Enables/disable (1/0) plugin
+
+
+  *g:pic_vim_extensions*            Default: ['jpg', 'jpeg', 'png']
+
+                                  Desc: File extensions to use as images
+
+
+  *g:pic_vim_script_dir*            Default: ''
+
+                                  Desc: Directory in which to find the
+                                        conversion script
+
+
+  *g:pic_vim_script_name*           Default: 'pic-vim.py'
+
+                                  Desc: Name of conversion script
+
+
+  *g:pic_vim_max_files_on_start*    Default: 5
+
+                                  Desc: Max files to convert to ascii
+
+
+==========================================================================
+TODOS                                                          *PicVimTODOs*
+
+
+ - Just generally improve the scripts, to be honest, most of the heavy 
+   lifting is done through PIL (https://pillow.readthedocs.io/en/stable/)
+
+ - Testing
+
+
+==========================================================================
+BUGS                                                            *PicVimBugs*
+
+
+ - None as yet...
+
+
+==========================================================================
+LICENSE                                                      *PicVimLicense*
+
+  
+This plugin is distributed and can be redistributed under the GPL v2.0.
+  
+  See `$(git rev-parse --show-toplevel)/LICENSE`
+
+
+==========================================================================
+
