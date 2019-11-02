@@ -80,6 +80,7 @@ fu! PicVimDrawImageIntoSplit(fn, d, ...)
     return
   endif
   enew
+  setlocal bufhidden=hide buftype=nofile noswapfile
   if a:1
     call s:PicVimReadImage(a:fn, a:1 - 8)
   else
